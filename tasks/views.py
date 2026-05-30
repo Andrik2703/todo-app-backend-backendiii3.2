@@ -4,9 +4,6 @@ from rest_framework import permissions, viewsets
 
 from tasks.serializers import GroupSerializer, UserSerializer, TaskSerializer
 
-
-importacion_no_usada = "hola"  # ← OTRO ERROR
-
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
