@@ -1,6 +1,7 @@
 from django.db import models
 from django_prometheus.models import ExportModelOperationsMixin  # ← AGREGAR
 
+
 # Create your models here.
 class Task(ExportModelOperationsMixin('tasks'), models.Model):  # ← MODIFICAR ESTA LÍNEA
     created = models.DateTimeField(auto_now_add=True)
