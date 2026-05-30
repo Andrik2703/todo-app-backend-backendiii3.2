@@ -1,7 +1,8 @@
 from django.http import JsonResponse
 from django.urls import include, path
 from rest_framework import routers
-from tasks.views import UserViewSet, GroupViewSet, TaskViewSet
+
+from tasks.views import GroupViewSet, TaskViewSet, UserViewSet
 
 
 def health(request):
