@@ -4,7 +4,7 @@ from rest_framework import permissions, viewsets
 
 from tasks.serializers import GroupSerializer, UserSerializer, TaskSerializer
 
-variable_sin_usar = 123  # ← ERROR INTENCIONAL: Variable declarada pero no usada
+
 importacion_no_usada = "hola"  # ← OTRO ERROR
 
 class UserViewSet(viewsets.ModelViewSet):
