@@ -1,9 +1,10 @@
+import os
+
+from django.core.asgi import get_asgi_application
+
 """
 ASGI config for core project.
 """
-
-from django.core.asgi import get_asgi_application
-import os
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
 
