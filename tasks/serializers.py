@@ -31,4 +31,4 @@ class TaskSerializer(serializers.HyperlinkedModelSerializer):
             "description",
             "completed",
             "owner"
-        ]
+        ] 

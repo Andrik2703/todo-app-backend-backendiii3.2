@@ -11,4 +11,4 @@ class Task(ExportModelOperationsMixin('tasks'), models.Model):
     )
 
     class Meta:
-        ordering = ["created"]
+        ordering = ["created"] 
