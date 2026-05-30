@@ -1,0 +1,11 @@
+application = get_asgi_application()  venv/ 
+env/ 
+__pycache__/ 
+*.pyc 
+*.pyo 
+.env 
+.git/ 
+.vscode/ 
+.idea/ 
+db.sqlite3 
+staticfiles/ 

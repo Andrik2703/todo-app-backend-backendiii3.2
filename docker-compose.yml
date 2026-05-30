@@ -1,0 +1,44 @@
+version: '3.9' 
+ 
+services: 
+  db: 
+    image: postgres:16-alpine 
+    container_name: todo_db 
+    restart: unless-stopped 
+    environment: 
+      POSTGRES_DB: tasks 
+      POSTGRES_USER: postgres 
+      POSTGRES_PASSWORD: postgres 
+    healthcheck: 
+      test: ["CMD-SHELL", "pg_isready -U postgres -d tasks"] 
+      interval: 5s 
+      timeout: 5s 
+      retries: 10 
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data 
+    ports: 
+      - "5432:5432" 
+ 
+  web: 
+    build: . 
+    container_name: todo_api 
+    restart: unless-stopped 
+    depends_on: 
+      db: 
+        condition: service_healthy 
+    environment: 
+      DB_NAME: tasks 
+      DB_USER: postgres 
+      DB_PASSWORD: postgres 
+      DB_HOST: db 
+      DB_PORT: 5432 
+      DEBUG: "True" 
+      DJANGO_ALLOWED_HOSTS: "localhost,127.0.0.1,web,host.docker.internal,192.168.1.107"
+    ports: 
+      - "8000:8000" 
+    volumes: 
+      - .:/app 
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000" 
+ 
+volumes: 
+  postgres_data: 
