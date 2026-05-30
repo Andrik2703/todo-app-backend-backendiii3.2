@@ -69,22 +69,13 @@ DATABASES = {
         "PORT": os.getenv('DB_PORT', '5432'),
     }
 }
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.'
+             'UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -102,6 +93,4 @@ PROMETHEUS_LATENCY_BUCKETS = (
     2.5, 5.0, 7.5, 10.0, 25.0, 50.0, 75.0, float('inf'),
 )
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:9000",
-]
+CORS_ALLOWED_ORIGINS = ["http://localhost:9000"]
